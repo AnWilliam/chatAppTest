@@ -1,0 +1,12 @@
+{
+  "name": "random-video-chat-signaling",
+  "description": "WebSocket signaling server for Random Video Chat",
+  "buildCommand": "npm install",
+  "startCommand": "npm run start:server",
+  "envVars": [
+    {
+      "key": "SIGNALING_PORT",
+      "value": "10000"
+    }
+  ]
+}
