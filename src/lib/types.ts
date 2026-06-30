@@ -7,7 +7,7 @@ export interface ChatMessage {
   timestamp: number;
 }
 
-export type SignalMessage =
+export type InboundSignalMessage =
   | { type: "connected"; clientId: string }
   | { type: "idle" }
   | { type: "waiting" }
@@ -17,6 +17,17 @@ export type SignalMessage =
   | { type: "answer"; sdp: RTCSessionDescriptionInit; from?: string }
   | { type: "ice-candidate"; candidate: RTCIceCandidateInit; from?: string }
   | { type: "chat"; text: string; from?: string };
+
+export type OutboundSignalMessage =
+  | { type: "find-match" }
+  | { type: "next" }
+  | { type: "cancel-wait" }
+  | { type: "offer"; sdp: RTCSessionDescriptionInit }
+  | { type: "answer"; sdp: RTCSessionDescriptionInit }
+  | { type: "ice-candidate"; candidate: RTCIceCandidateInit }
+  | { type: "chat"; text: string };
+
+export type SignalMessage = InboundSignalMessage | OutboundSignalMessage;
 
 export const ICE_SERVERS: RTCIceServer[] = [
   { urls: "stun:stun.l.google.com:19302" },

@@ -1,7 +1,12 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import type { AppState, ChatMessage, SignalMessage } from "@/lib/types";
+import type {
+  AppState,
+  ChatMessage,
+  InboundSignalMessage,
+  OutboundSignalMessage,
+} from "@/lib/types";
 import { ICE_SERVERS, getSignalingUrl } from "@/lib/types";
 
 export function useVideoChat() {
@@ -30,7 +35,7 @@ export function useVideoChat() {
     setRemoteStream(null);
   }, []);
 
-  const sendSignal = useCallback((message: SignalMessage) => {
+  const sendSignal = useCallback((message: OutboundSignalMessage) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
       wsRef.current.send(JSON.stringify(message));
     }
@@ -99,7 +104,7 @@ export function useVideoChat() {
   }, [createPeerConnection, sendSignal]);
 
   const handleSignalMessage = useCallback(
-    async (message: SignalMessage) => {
+    async (message: InboundSignalMessage) => {
       switch (message.type) {
         case "connected":
           setConnectionError(null);
@@ -193,7 +198,7 @@ export function useVideoChat() {
 
     ws.onmessage = (event) => {
       try {
-        const message = JSON.parse(event.data) as SignalMessage;
+        const message = JSON.parse(event.data) as InboundSignalMessage;
         handleSignalMessage(message);
       } catch {
         // Ignore malformed messages
