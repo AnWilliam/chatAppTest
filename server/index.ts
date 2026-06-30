@@ -3,7 +3,7 @@ import { createServer } from "http";
 import { v4 as uuidv4 } from "uuid";
 import type { IncomingMessage } from "http";
 
-const PORT = parseInt(process.env.SIGNALING_PORT || "3001", 10);
+const PORT = parseInt(process.env.PORT || process.env.SIGNALING_PORT || "3001", 10);
 const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN;
 
 type ClientState = "idle" | "waiting" | "matched";

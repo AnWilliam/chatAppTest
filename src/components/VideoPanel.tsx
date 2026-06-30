@@ -35,7 +35,7 @@ export function VideoPanel({
   return (
     <div
       className={clsx(
-        "relative overflow-hidden rounded-2xl bg-zinc-900 ring-1 ring-white/10",
+        "relative overflow-hidden rounded-2xl bg-slate-100 ring-1 ring-slate-200",
         className
       )}
     >
@@ -51,14 +51,14 @@ export function VideoPanel({
           )}
         />
       ) : (
-        <div className="flex h-full w-full flex-col items-center justify-center gap-3 text-zinc-500">
-          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-zinc-800">
-            <User className="h-10 w-10" />
+        <div className="flex h-full w-full flex-col items-center justify-center gap-3 text-slate-400">
+          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-slate-200">
+            <User className="h-10 w-10 text-slate-500" />
           </div>
-          <p className="text-sm">{placeholder}</p>
+          <p className="text-sm text-slate-500">{placeholder}</p>
         </div>
       )}
-      <div className="absolute bottom-3 left-3 rounded-full bg-black/60 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+      <div className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-xs font-medium text-slate-700 shadow-sm backdrop-blur-sm">
         {label}
       </div>
     </div>

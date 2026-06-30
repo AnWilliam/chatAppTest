@@ -42,7 +42,7 @@ export function Controls({
       {idle && (
         <button
           onClick={onMatch}
-          className="flex items-center gap-2 rounded-full bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-600/30 transition hover:bg-violet-500 hover:shadow-violet-500/40"
+          className="flex items-center gap-2 rounded-full bg-sky-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-600/25 transition hover:bg-sky-500"
         >
           <Play className="h-4 w-4 fill-current" />
           Match
@@ -52,7 +52,7 @@ export function Controls({
       {waiting && (
         <button
           onClick={onCancelWait}
-          className="flex items-center gap-2 rounded-full bg-zinc-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-600"
+          className="flex items-center gap-2 rounded-full bg-slate-200 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-300"
         >
           <X className="h-4 w-4" />
           Cancel
@@ -66,8 +66,8 @@ export function Controls({
             className={clsx(
               "flex h-12 w-12 items-center justify-center rounded-full transition",
               isMuted
-                ? "bg-red-600 text-white hover:bg-red-500"
-                : "bg-zinc-700 text-white hover:bg-zinc-600"
+                ? "bg-red-500 text-white hover:bg-red-400"
+                : "bg-slate-200 text-slate-700 hover:bg-slate-300"
             )}
             title={isMuted ? "Unmute" : "Mute"}
           >
@@ -79,8 +79,8 @@ export function Controls({
             className={clsx(
               "flex h-12 w-12 items-center justify-center rounded-full transition",
               isCameraOff
-                ? "bg-red-600 text-white hover:bg-red-500"
-                : "bg-zinc-700 text-white hover:bg-zinc-600"
+                ? "bg-red-500 text-white hover:bg-red-400"
+                : "bg-slate-200 text-slate-700 hover:bg-slate-300"
             )}
             title={isCameraOff ? "Turn camera on" : "Turn camera off"}
           >
@@ -93,7 +93,7 @@ export function Controls({
 
           <button
             onClick={onNext}
-            className="flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-zinc-900 transition hover:bg-amber-400"
+            className="flex items-center gap-2 rounded-full bg-amber-400 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-amber-300"
           >
             <SkipForward className="h-4 w-4" />
             Next
